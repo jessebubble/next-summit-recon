@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Arrow, CtaBand, Check, Eyebrow } from "./_components/ui";
 import { JsonLd } from "./_components/json-ld";
-import { faqs, process, reasons, roofTypes, services, site } from "@/lib/site";
+import { faqs, processSteps, reasons, roofTypes, services, site } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -199,7 +199,7 @@ function Process() {
           <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">From recon to repaired in four steps</h2>
         </div>
         <ol className="mt-12 grid gap-8 md:grid-cols-4">
-          {process.map((p) => (
+          {processSteps.map((p) => (
             <li key={p.step} className="relative border-t-2 border-brand-grey/15 pt-6">
               <span className="absolute -top-0.5 left-0 h-0.5 w-12 bg-brand-green" />
               <p className="font-mono text-sm text-brand-green">{p.step}</p>

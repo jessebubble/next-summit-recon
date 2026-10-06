@@ -1,4 +1,4 @@
-import { contacts, faqs, process, roofTypes, services, site } from "@/lib/site";
+import { contacts, faqs, processSteps, roofTypes, services, site } from "@/lib/site";
 
 // llms.txt (https://llmstxt.org): a plain-Markdown summary for AI agents.
 // Generated from lib/site.ts so it never drifts from what the pages say.
@@ -20,7 +20,7 @@ ${contacts.map((c) => `- ${c.name}: ${c.phone}, ${c.email}`).join("\n")}
 
 ## Key pages
 
-- [Home](${site.url}/): Overview, how the team works, process, and FAQ.
+- [Home](${site.url}/): Overview, how the team works, processSteps, and FAQ.
 - [Services](${site.url}/services): Every service with what it includes.
 - [About](${site.url}/about): Who Summit Recon is and why the team stays small.
 - [Contact](${site.url}/contact): Request a free roof inspection.
@@ -33,7 +33,7 @@ Roof types serviced: ${roofTypes.join(", ")}.
 
 ## Process
 
-${process.map((p, i) => `${i + 1}. **${p.title}**: ${p.body}`).join("\n")}
+${processSteps.map((p, i) => `${i + 1}. **${p.title}**: ${p.body}`).join("\n")}
 
 ## FAQ
 

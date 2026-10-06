@@ -22,8 +22,17 @@ export const site = {
   email: contacts[0].email,
   region: "San Antonio & the Texas Hill Country",
   hours: "Mon–Sat, 7am–6pm · Emergency leak calls 24/7",
-  url: "https://summit-recon.com",
+  url: siteUrl(),
 };
+
+// Absolute URL for metadata, OG images, sitemap, and llms.txt. On Vercel this
+// is the project's production domain — the .vercel.app alias today, and
+// summit-recon.com automatically once that domain is added to the project.
+function siteUrl() {
+  if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  return "http://localhost:3000";
+}
 
 export const nav = [
   { href: "/services", label: "Services" },
@@ -145,7 +154,7 @@ export const roofTypes = [
   "Flat & Low-Slope",
 ];
 
-export const process = [
+export const processSteps = [
   {
     step: "01",
     title: "Recon",
