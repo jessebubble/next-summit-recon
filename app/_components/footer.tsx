@@ -64,7 +64,7 @@ export function Footer() {
       <div className="border-t border-black/5">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-6 text-xs text-brand-grey-light sm:flex-row sm:justify-between sm:px-6">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-          <p>Licensed &amp; insured roofing contractor.</p>
+          <p>Licensed &amp; insured · Interior reconstruction, restoration &amp; remodeling.</p>
         </div>
       </div>
     </footer>

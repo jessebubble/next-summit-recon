@@ -4,7 +4,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
 import { JsonLd } from "./_components/json-ld";
-import { contacts, services, site } from "@/lib/site";
+import { contacts, serviceGroups, services, site } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,26 +17,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const description = `${site.name} is a small, owner-led roofing crew specializing in roof repair, storm and hail damage, free inspections, and insurance claim help across ${site.region}.`;
+const title = `${site.name} | Reconstruction, Restoration & Remodeling in San Antonio`;
+const description = `${site.name} is a small, owner-led team for interior reconstruction after water and fire damage, insurance restoration, and kitchen, bathroom, and whole-home remodeling across ${site.region}.`;
 
 // opengraph-image.tsx is picked up automatically for openGraph/twitter images.
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | Roof Repair in San Antonio, TX`,
+    default: title,
     template: `%s | ${site.name}`,
   },
   description,
   applicationName: site.name,
   keywords: [
-    "roof repair San Antonio",
-    "roofer San Antonio",
-    "roof leak repair",
-    "storm damage roof repair",
-    "hail damage roof",
-    "free roof inspection",
-    "roof insurance claim help",
-    "Texas Hill Country roofing",
+    "interior reconstruction San Antonio",
+    "water damage reconstruction",
+    "fire damage restoration",
+    "insurance restoration contractor",
+    "kitchen remodeling San Antonio",
+    "bathroom remodeling San Antonio",
+    "home remodeling contractor",
+    "Texas Hill Country remodeling",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -44,12 +45,12 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/",
     siteName: site.name,
-    title: `${site.name} | Roof Repair in San Antonio, TX`,
+    title,
     description,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} | Roof Repair in San Antonio, TX`,
+    title,
     description,
   },
   robots: { index: true, follow: true },
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
 
 const businessJsonLd = {
   "@context": "https://schema.org",
-  "@type": "RoofingContractor",
+  "@type": "GeneralContractor",
   "@id": `${site.url}/#business`,
   name: site.name,
   url: site.url,
@@ -76,12 +77,19 @@ const businessJsonLd = {
     contactType: "customer service",
     areaServed: "US-TX",
   })),
+  knowsAbout: ["Interior reconstruction", "Water damage restoration", "Fire damage restoration", "Insurance restoration", "Kitchen remodeling", "Bathroom remodeling"],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Roofing services",
-    itemListElement: services.map((s) => ({
-      "@type": "Offer",
-      itemOffered: { "@type": "Service", name: s.title, description: s.summary, url: `${site.url}/services#${s.slug}` },
+    name: "Reconstruction, restoration & remodeling services",
+    itemListElement: serviceGroups.map((g) => ({
+      "@type": "OfferCatalog",
+      name: g.title,
+      itemListElement: services
+        .filter((s) => s.group === g.id)
+        .map((s) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name: s.title, description: s.summary, url: `${site.url}/services#${s.slug}` },
+        })),
     })),
   },
 };

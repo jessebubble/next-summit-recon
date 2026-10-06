@@ -5,7 +5,7 @@ import { reasons, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
-  description: `${site.name} is a small, owner-led roofing team serving ${site.region}.`,
+  description: `${site.name} is a small, owner-led team doing ${site.summary} across ${site.region}.`,
   alternates: { canonical: "/about" },
 };
 
@@ -17,17 +17,17 @@ export default function AboutPage() {
           <div>
             <Eyebrow>About us</Eyebrow>
             <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-              We do the recon before we do the roof
+              Recon is short for reconstruction
             </h1>
             <div className="mt-6 space-y-4 leading-7 text-brand-grey">
               <p>
-                {site.name} started with a simple idea: homeowners deserve to know exactly what&apos;s wrong with
-                their roof before anyone sells them a fix. Every job starts with a careful inspection and a clear
-                photo report — the recon.
+                {site.name} rebuilds homes. When water or fire damage turns your house upside down, we put it back
+                together: framing, drywall, floors, cabinets, and every finish in between. And when you&apos;re ready
+                for a new kitchen or bath, we bring that same rebuild experience to your remodel.
               </p>
               <p>
                 We&apos;re intentionally small. That means fewer handoffs, faster answers, and a crew that takes
-                personal ownership of every repair. When you call, you talk to the people doing the work.
+                personal ownership of every project. When you call, you talk to the people doing the work.
               </p>
               <p>
                 We serve {site.region}, and most of our work comes from neighbors recommending us to neighbors.

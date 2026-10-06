@@ -16,12 +16,13 @@ export const contacts = [
 // Service area and hours are placeholders — confirm before launch.
 export const site = {
   name: "Summit Recon",
-  tagline: "Roof repair done right by a crew that answers its own phone.",
+  tagline: "Interior reconstruction, restoration, and remodeling by a crew that answers its own phone.",
+  summary: "interior reconstruction, restoration, and remodeling",
   phone: contacts[0].phone,
   phoneHref: contacts[0].phoneHref,
   email: contacts[0].email,
   region: "San Antonio & the Texas Hill Country",
-  hours: "Mon–Sat, 7am–6pm · Emergency leak calls 24/7",
+  hours: "Mon–Sat, 7am–6pm",
   url: siteUrl(),
 };
 
@@ -41,8 +42,24 @@ export const nav = [
   { href: "/#faq", label: "FAQ" },
 ];
 
+export const serviceGroups = [
+  {
+    id: "restoration",
+    title: "Restoration & Reconstruction",
+    intro:
+      "When water or fire damages your home, insurance covers putting it back the way it was. We rebuild it, document every line item, and make sure the full scope gets covered.",
+  },
+  {
+    id: "remodeling",
+    title: "Remodeling",
+    intro:
+      "Kitchens, bathrooms, and living spaces planned and built by one small crew, with the same care we bring to every rebuild.",
+  },
+] as const;
+
 export type Service = {
   slug: string;
+  group: (typeof serviceGroups)[number]["id"];
   title: string;
   summary: string;
   details: string[];
@@ -50,175 +67,182 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "roof-repair",
-    title: "Roof Repair",
+    slug: "water-damage",
+    group: "restoration",
+    title: "Water & Flood Damage Reconstruction",
     summary:
-      "Leaks, missing or lifted shingles, cracked tiles, and worn spots fixed fast — before a small problem becomes a ceiling problem.",
+      "Burst pipe, slab leak, appliance failure, or flooding. Once the space is dry, we rebuild walls, floors, cabinets, and finishes back to pre-loss condition.",
     details: [
-      "Leak detection and repair",
-      "Shingle, tile, and metal panel replacement",
-      "Pipe boot and vent seal repair",
-      "Valley and ridge cap repair",
+      "Drywall and insulation replacement",
+      "Subfloor and flooring repair",
+      "Cabinet and vanity replacement",
+      "Baseboard, trim, and paint",
     ],
   },
   {
-    slug: "storm-damage",
-    title: "Storm & Hail Damage",
+    slug: "fire-smoke",
+    group: "restoration",
+    title: "Fire & Smoke Damage Restoration",
     summary:
-      "Texas weather is hard on roofs. We document hail and wind damage thoroughly and restore your roof to pre-storm condition.",
+      "From a kitchen fire to a whole-room loss, we rebuild damaged framing and finishes so your home looks and feels like home again.",
     details: [
-      "Hail and wind damage assessment",
-      "Photo documentation for your records",
-      "Decking and underlayment repair",
-      "Full restoration when needed",
+      "Framing and structural repair",
+      "Drywall, ceilings, and texture",
+      "Doors, trim, and millwork",
+      "Full interior refinishing",
     ],
   },
   {
-    slug: "emergency-repair",
-    title: "Emergency Leak Response",
+    slug: "insurance-restoration",
+    group: "restoration",
+    title: "Insurance Restoration",
     summary:
-      "Water coming in? We'll get out quickly to tarp and secure your roof, then schedule a permanent repair.",
+      "We document the damage, walk your adjuster through the scope, and keep the claim moving so every eligible item is covered.",
     details: [
-      "Emergency tarping",
-      "Temporary leak stops",
-      "Interior damage check",
-      "Permanent repair scheduling",
-    ],
-  },
-  {
-    slug: "inspections",
-    title: "Free Roof Inspections",
-    summary:
-      "A top-to-bottom recon of your roof with a clear photo report — what's fine, what needs attention, and what can wait.",
-    details: [
-      "Shingles, flashing, and penetrations",
-      "Attic ventilation and decking",
-      "Gutters and drainage",
-      "Photo report you keep",
-    ],
-  },
-  {
-    slug: "insurance-claims",
-    title: "Insurance Claim Help",
-    summary:
-      "We walk you through the claim, document the damage, and meet with your adjuster so nothing gets missed.",
-    details: [
-      "Damage documentation",
+      "Detailed written scope",
+      "Photo documentation",
       "Adjuster meetings",
-      "Scope review",
-      "Straight answers on what's covered",
+      "Supplements when hidden damage turns up",
     ],
   },
   {
-    slug: "replacement",
-    title: "Roof Replacement",
+    slug: "rebuild-and-upgrade",
+    group: "restoration",
+    title: "Upgrade While You Rebuild",
     summary:
-      "When repair no longer makes sense, we'll tell you — and handle a full replacement with the same small-crew care.",
+      "Insurance pays to restore what you had. If you want better finishes or a new layout while the walls are open, you pay only the difference, with transparent pricing.",
     details: [
-      "Asphalt shingle",
-      "Standing seam and exposed-fastener metal",
-      "Concrete and clay tile",
-      "Flat and low-slope roofs",
+      "Finish and fixture upgrades",
+      "Layout changes during the rebuild",
+      "Line-item pricing on every upgrade",
+      "One project, one crew, one schedule",
     ],
   },
   {
-    slug: "flashing-trim",
-    title: "Flashing, Fascia & Soffit",
+    slug: "kitchen-remodel",
+    group: "remodeling",
+    title: "Kitchen Remodeling",
     summary:
-      "Most leaks start at the edges and seams. We repair flashing, rotted fascia, and damaged soffit to seal your roofline.",
+      "Layouts that work, cabinets that last, and finishes you'll love, planned and built by the same small crew from demo to final walkthrough.",
     details: [
-      "Chimney and wall flashing",
-      "Drip edge installation",
-      "Fascia board replacement",
-      "Soffit and vent repair",
+      "Custom and semi-custom cabinetry",
+      "Countertops and backsplash",
+      "Layout changes and islands",
+      "Lighting and fixture upgrades",
     ],
   },
   {
-    slug: "gutters-ventilation",
-    title: "Gutters & Ventilation",
+    slug: "bathroom-remodel",
+    group: "remodeling",
+    title: "Bathroom Remodeling",
     summary:
-      "Good drainage and airflow add years to a roof. We repair gutters and fix attic ventilation that cooks shingles from below.",
+      "Tub-to-shower conversions, new vanities, tile, and full gut remodels, built watertight underneath and clean on top.",
     details: [
-      "Gutter repair and replacement",
-      "Downspout re-routing",
-      "Ridge and soffit vents",
-      "Attic airflow balancing",
+      "Shower and tub conversions",
+      "Tile floors and surrounds",
+      "Vanities and fixtures",
+      "Accessibility upgrades",
+    ],
+  },
+  {
+    slug: "interior-remodel",
+    group: "remodeling",
+    title: "Interior & Whole-Home Remodeling",
+    summary:
+      "Open up a floor plan, refresh a living space, or update the whole house. The result feels intentional, not patched together.",
+    details: [
+      "Wall removal and reframing",
+      "Living and bedroom updates",
+      "Laundry and utility rooms",
+      "Whole-home refreshes",
+    ],
+  },
+  {
+    slug: "interior-finishes",
+    group: "remodeling",
+    title: "Flooring, Cabinetry & Finishes",
+    summary:
+      "The finish work that makes a space feel new: floors installed level, cabinets set square, seamless drywall, and crisp paint and trim.",
+    details: [
+      "LVP, tile, and hardwood flooring",
+      "Cabinet installation",
+      "Drywall and texture matching",
+      "Interior paint and trim carpentry",
     ],
   },
 ];
 
-export const roofTypes = [
-  "Asphalt Shingle",
-  "Metal",
-  "Tile",
-  "Flat & Low-Slope",
-];
+export const spaces = ["Kitchens", "Bathrooms", "Living Areas", "Bedrooms", "Laundry Rooms", "Whole Homes"];
 
 export const processSteps = [
   {
     step: "01",
-    title: "Recon",
-    body: "We come out, get on the roof, and inspect everything — shingles, flashing, vents, decking, and attic.",
+    title: "Walkthrough",
+    body: "We come out, walk the space with you, take measurements and photos, and talk through what you need.",
   },
   {
     step: "02",
-    title: "Report",
-    body: "You get photos of what we found and a straight recommendation: repair, monitor, or replace. No pressure.",
+    title: "Scope",
+    body: "You get a clear written scope and estimate. For insurance work, we review it with your adjuster so nothing is missed.",
   },
   {
     step: "03",
-    title: "Repair",
-    body: "The same crew that inspected your roof does the work, with quality materials and a clean job site.",
+    title: "Rebuild",
+    body: "The same crew that scoped your project builds it, with protected floors, a clean site, and regular updates.",
   },
   {
     step: "04",
-    title: "Walkthrough",
-    body: "We show you the finished work, haul off debris, and back the repair with our written workmanship warranty.",
+    title: "Final Walkthrough",
+    body: "We walk the finished work with you, close out every punch-list item, and back it with our written workmanship warranty.",
   },
 ];
 
 export const reasons = [
   {
     title: "The owner is on your job",
-    body: "We're a small team on purpose. You won't be handed off to a sales rep, then a project manager, then a sub.",
+    body: "We're a small team on purpose. You won't be handed off to a sales rep, then a project manager, then a crew you've never met.",
   },
   {
-    title: "Repair first, not replace first",
-    body: "Plenty of roofs just need a good repair. If yours does, that's what we'll recommend.",
+    title: "Damage to done, one team",
+    body: "Reconstruction and remodeling under one roof means fewer handoffs, fewer delays, and one point of contact from start to finish.",
   },
   {
-    title: "Photo-backed recommendations",
-    body: "Every inspection comes with photos, so you can see exactly what we see.",
+    title: "Insurance work, handled",
+    body: "We document everything and speak the adjuster's language, so your claim covers the full rebuild — not just part of it.",
   },
   {
     title: "Licensed, insured, and local",
-    body: "We live and work here. Our reputation is built one roof — and one neighbor — at a time.",
+    body: "We live and work here. Our reputation is built one home — and one neighbor — at a time.",
   },
 ];
 
 export const faqs = [
   {
-    q: "Should I repair or replace my roof?",
-    a: "It depends on the age of the roof, how widespread the damage is, and how much life the rest of it has left. If damage is isolated and the roof is in good shape overall, a repair is usually the smart call. After our inspection, we'll show you photos and give you an honest recommendation.",
+    q: "What's the difference between reconstruction, restoration, and remodeling?",
+    a: "Reconstruction and restoration bring a space back after damage — water, fire, or smoke — by rebuilding what was lost. Remodeling changes a space by choice, like a new kitchen layout or a bathroom upgrade. We do all three, and often combine them: if you're already rebuilding after damage, it's a good time to make upgrades.",
   },
   {
-    q: "Is the roof inspection really free?",
-    a: "Yes. We'll inspect your roof and send you a photo report at no cost and with no obligation.",
+    q: "Do you handle water extraction and drying?",
+    a: "We focus on the rebuild. If your home still needs water mitigation or drying, we'll coordinate with your mitigation company and start reconstruction as soon as the space is cleared.",
   },
   {
-    q: "How fast can you come out for a leak?",
-    a: "For active leaks we prioritize emergency calls and aim to get the roof secured as quickly as possible. Call us directly — you'll talk to someone on the team, not a call center.",
+    q: "Do you work with insurance claims?",
+    a: "Yes. We document the damage, prepare a detailed scope, meet with your adjuster, and help with supplements if hidden damage turns up once walls are opened.",
   },
   {
-    q: "Do you help with insurance claims?",
-    a: "We do. We document storm and hail damage, help you understand the process, and can meet with your adjuster on-site so the full scope of damage is captured.",
+    q: "Can I upgrade finishes during an insurance rebuild?",
+    a: "Yes. Your policy covers restoring your home to its original condition. If you'd like better finishes, a different layout, or extra work while the walls are open, you pay only the difference, and we price every upgrade line by line before anything changes.",
   },
   {
-    q: "What kinds of roofs do you work on?",
-    a: "Asphalt shingle, metal, concrete and clay tile, and flat or low-slope roofs on homes and small commercial buildings.",
+    q: "Is the estimate free?",
+    a: "Yes. We'll walk the space, take measurements and photos, and give you a written estimate at no cost and with no obligation.",
+  },
+  {
+    q: "How long will my project take?",
+    a: "It depends on the scope. A single-room rebuild can take a couple of weeks, while a full kitchen remodel or a multi-room loss takes longer. You'll get a realistic schedule with your estimate, and we'll keep you updated as the work moves along.",
   },
   {
     q: "Do you warranty your work?",
-    a: "Every repair is backed by a written workmanship warranty, and the materials we install carry their manufacturer warranties. We'll go over the specifics with you before any work begins.",
+    a: "Every project is backed by a written workmanship warranty, and the materials we install carry their manufacturer warranties. We'll go over the specifics before any work begins.",
   },
 ];

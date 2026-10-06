@@ -4,8 +4,8 @@ import { Check, Eyebrow } from "../_components/ui";
 import { contacts, site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Book a Free Roof Inspection",
-  description: `Request a free roof inspection from ${site.name}. Serving ${site.region}.`,
+  title: "Get a Free Estimate",
+  description: `Request a free on-site estimate for reconstruction, restoration, or remodeling from ${site.name}. Serving ${site.region}.`,
   alternates: { canonical: "/contact" },
 };
 
@@ -15,12 +15,12 @@ export default function ContactPage() {
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1fr_1.4fr]">
         <div>
           <Eyebrow>Contact</Eyebrow>
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">Book your free roof inspection</h1>
+          <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">Get your free on-site estimate</h1>
           <p className="mt-4 text-lg text-brand-grey">
-            Tell us a little about your roof and we&apos;ll reach out to schedule a time that works for you.
+            Tell us about your project, whether it&apos;s damage repair or a remodel, and we&apos;ll reach out to schedule a walkthrough.
           </p>
           <ul className="mt-8 space-y-3 text-brand-grey">
-            {["No-cost, no-obligation inspection", "Photo report of everything we find", "Honest repair-or-replace advice"].map(
+            {["No-cost, no-obligation walkthrough", "Clear written scope and estimate", "Insurance claim coordination"].map(
               (i) => (
                 <li key={i} className="flex items-center gap-2">
                   <Check />

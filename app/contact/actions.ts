@@ -6,7 +6,7 @@ export type ContactState = {
   errors?: Partial<Record<"name" | "phone" | "address", string>>;
 };
 
-export async function requestInspection(_prev: ContactState, formData: FormData): Promise<ContactState> {
+export async function requestEstimate(_prev: ContactState, formData: FormData): Promise<ContactState> {
   const name = String(formData.get("name") ?? "").trim();
   const phone = String(formData.get("phone") ?? "").trim();
   const address = String(formData.get("address") ?? "").trim();
@@ -20,7 +20,7 @@ export async function requestInspection(_prev: ContactState, formData: FormData)
   }
 
   // TODO: deliver the lead (email service, CRM, etc.). Logged for now.
-  console.log("Inspection request", {
+  console.log("Estimate request", {
     name,
     phone,
     address,
@@ -29,5 +29,5 @@ export async function requestInspection(_prev: ContactState, formData: FormData)
     message: formData.get("message"),
   });
 
-  return { ok: true, message: `Thanks, ${name.split(" ")[0]}! We'll call you shortly to schedule your inspection.` };
+  return { ok: true, message: `Thanks, ${name.split(" ")[0]}! We'll call you shortly to schedule your walkthrough.` };
 }

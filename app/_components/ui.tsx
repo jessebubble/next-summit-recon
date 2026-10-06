@@ -43,9 +43,9 @@ export function CtaBand() {
       <Mountain className="absolute bottom-0 right-0 h-28 w-auto max-w-none sm:h-52 lg:right-[8%]" />
       <div className="relative mx-auto flex max-w-6xl flex-col items-start gap-8 px-4 pt-14 sm:px-6 sm:pt-16 md:flex-row md:items-center md:justify-between">
         <div className="max-w-xl">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Not sure what your roof needs?</h2>
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Ready to rebuild?</h2>
           <p className="mt-3 text-white/80">
-            Start with a free inspection. We&apos;ll show you exactly what we find — and you decide what&apos;s next.
+            Start with a free on-site estimate. We&apos;ll walk the space with you, scope the work, and give you a straight answer on cost and timeline.
           </p>
         </div>
         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
@@ -53,7 +53,7 @@ export function CtaBand() {
             href="/contact"
             className="group inline-flex items-center justify-center gap-1.5 rounded-md bg-brand-green px-6 py-3.5 font-semibold text-white transition-colors duration-300 hover:bg-brand-green-hover"
           >
-            Book Free Inspection
+            Get a Free Estimate
             <Arrow />
           </Link>
           <a

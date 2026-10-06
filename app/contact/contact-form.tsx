@@ -1,8 +1,8 @@
 "use client";
 
 import { useActionState } from "react";
-import { requestInspection, type ContactState } from "./actions";
-import { services } from "@/lib/site";
+import { requestEstimate, type ContactState } from "./actions";
+import { serviceGroups, services } from "@/lib/site";
 
 const initialState: ContactState = { ok: false, message: "" };
 
@@ -10,7 +10,7 @@ const input =
   "mt-1.5 block w-full rounded-md border border-brand-grey/25 bg-white px-3.5 py-2.5 text-foreground outline-none transition focus:border-brand-green focus:ring-2 focus:ring-brand-green/20";
 
 export function ContactForm() {
-  const [state, formAction, pending] = useActionState(requestInspection, initialState);
+  const [state, formAction, pending] = useActionState(requestEstimate, initialState);
 
   if (state.ok) {
     return (
@@ -30,9 +30,16 @@ export function ContactForm() {
         <label htmlFor="service" className="text-sm font-medium">
           What do you need?
         </label>
-        <select id="service" name="service" className={input} defaultValue="Free Roof Inspections">
-          {services.map((s) => (
-            <option key={s.slug}>{s.title}</option>
+        <select id="service" name="service" className={input} defaultValue="Not sure yet">
+          <option>Not sure yet</option>
+          {serviceGroups.map((g) => (
+            <optgroup key={g.id} label={g.title}>
+              {services
+                .filter((s) => s.group === g.id)
+                .map((s) => (
+                  <option key={s.slug}>{s.title}</option>
+                ))}
+            </optgroup>
           ))}
         </select>
       </div>
@@ -61,7 +68,7 @@ export function ContactForm() {
         disabled={pending}
         className="rounded-md bg-brand-green px-6 py-3.5 font-semibold text-white transition-colors hover:bg-brand-green-hover disabled:opacity-60 sm:col-span-2"
       >
-        {pending ? "Sending…" : "Request My Free Inspection"}
+        {pending ? "Sending…" : "Request My Free Estimate"}
       </button>
     </form>
   );

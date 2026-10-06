@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Arrow, CtaBand, Check, Eyebrow } from "./_components/ui";
 import { JsonLd } from "./_components/json-ld";
-import { faqs, processSteps, reasons, roofTypes, services, site } from "@/lib/site";
+import { faqs, processSteps, reasons, serviceGroups, services, site, spaces } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <Services />
       <WhySmall />
       <Process />
-      <RoofTypes />
+      <Spaces />
       <Faq />
       <CtaBand />
       <JsonLd
@@ -35,22 +35,22 @@ function Hero() {
     <section className="relative overflow-hidden bg-white">
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-16 pt-12 sm:px-6 md:grid-cols-[1.15fr_1fr] md:pb-24 md:pt-24">
         <div>
-          <Eyebrow>Roof repair · {site.region.split(" & ")[0]}</Eyebrow>
+          <Eyebrow>Reconstruct · Restore · Remodel</Eyebrow>
           <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Small crew.
             <br />
-            <span className="text-brand-green">Serious roof repair.</span>
+            <span className="text-brand-green">Serious rebuilds.</span>
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-8 text-brand-grey">
-            Leaks, storm damage, and worn-out spots fixed right the first time — by an owner-led team that inspects,
-            quotes, and does the work itself.
+            Interior reconstruction after water or fire damage, and remodels you&apos;ve been waiting on — by an
+            owner-led team in {site.region.split(" & ")[0]} that scopes, builds, and finishes the work itself.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/contact"
               className="group inline-flex items-center justify-center gap-1.5 rounded-md bg-brand-green px-6 py-3.5 font-semibold text-white transition-colors duration-300 hover:bg-brand-green-hover"
             >
-              Book My Free Roof Inspection
+              Get My Free Estimate
               <Arrow />
             </Link>
             <Link
@@ -62,7 +62,7 @@ function Hero() {
             </Link>
           </div>
           <ul className="mt-8 grid gap-2 text-sm text-brand-grey sm:grid-cols-2">
-            {["Free inspection & photo report", "Licensed & fully insured", "Insurance claim help", "Written workmanship warranty"].map(
+            {["Free on-site estimate", "Licensed & fully insured", "Insurance claim coordination", "Written workmanship warranty"].map(
               (item) => (
                 <li key={item} className="flex items-center gap-2">
                   <Check />
@@ -85,7 +85,7 @@ function Hero() {
               className="mx-auto h-auto w-full max-w-50 sm:max-w-xs"
             />
             <div className="mt-6 sm:mt-8 rounded-lg bg-brand-grey-tint p-5">
-              <p className="text-xs font-semibold uppercase tracking-widest text-brand-grey-light">Emergency leak?</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-brand-grey-light">Dealing with damage?</p>
               <p className="mt-1 text-sm text-brand-grey">
                 Call us directly — you&apos;ll reach the crew, not a call center.
               </p>
@@ -103,8 +103,8 @@ function Hero() {
 function TrustBar() {
   const items = [
     { k: "Owner-led", v: "On every job" },
-    { k: "Free", v: "Roof inspections" },
-    { k: "24/7", v: "Emergency leak calls" },
+    { k: "Free", v: "On-site estimates" },
+    { k: "Insurance", v: "Claims coordinated" },
     { k: "Local", v: site.region.split(" & ")[0] },
   ];
   return (
@@ -129,10 +129,11 @@ function Services() {
           <div className="max-w-2xl">
             <Eyebrow>What we do</Eyebrow>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Roofing services built around repair
+              Reconstruction, restoration &amp; remodeling
             </h2>
             <p className="mt-4 text-brand-grey">
-              We focus on the work most roofs actually need — finding the problem and fixing it properly.
+              Whether you&apos;re rebuilding after damage or finally upgrading a space you&apos;ve outgrown, we handle
+              the whole interior, from framing to final paint.
             </p>
           </div>
           <Link href="/services" className="group inline-flex items-center gap-1 font-semibold text-brand-green">
@@ -152,7 +153,10 @@ function Services() {
                 <span className="h-1 w-8 bg-brand-green transition-all group-hover:w-12" />
                 <Arrow className="size-5 text-brand-grey-light group-hover:text-brand-green" />
               </div>
-              <h3 className="mt-5 text-lg font-semibold">{s.title}</h3>
+              <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-brand-grey-light">
+                {serviceGroups.find((g) => g.id === s.group)?.title}
+              </p>
+              <h3 className="mt-1.5 text-lg font-semibold">{s.title}</h3>
               <p className="mt-2 text-sm leading-6 text-brand-grey">{s.summary}</p>
             </Link>
           ))}
@@ -172,8 +176,8 @@ function WhySmall() {
             The big-company standard, without the big-company runaround
           </h2>
           <p className="mt-4 text-brand-grey">
-            Large roofing outfits run on volume. We run on referrals. Keeping our team small means the people you meet
-            are the people who climb your roof — and they care how it turns out.
+            Large restoration outfits run on volume. We run on referrals. Keeping our team small means the people you
+            meet are the people working in your home — and they care how it turns out.
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2">
@@ -196,7 +200,7 @@ function Process() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="max-w-2xl">
           <Eyebrow>Our process</Eyebrow>
-          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">From recon to repaired in four steps</h2>
+          <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">From walkthrough to finished in four steps</h2>
         </div>
         <ol className="mt-12 grid gap-8 md:grid-cols-4">
           {processSteps.map((p) => (
@@ -213,13 +217,13 @@ function Process() {
   );
 }
 
-function RoofTypes() {
+function Spaces() {
   return (
     <section className="border-y border-black/5 bg-white py-12">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 sm:px-6 md:flex-row md:justify-between">
-        <p className="text-sm font-semibold uppercase tracking-widest text-brand-grey-light">Roof types we service</p>
+        <p className="text-sm font-semibold uppercase tracking-widest text-brand-grey-light">Spaces we rebuild</p>
         <ul className="flex flex-wrap justify-center gap-3">
-          {roofTypes.map((t) => (
+          {spaces.map((t) => (
             <li key={t} className="rounded-full border border-brand-grey/20 px-4 py-2 text-sm font-medium text-brand-grey">
               {t}
             </li>

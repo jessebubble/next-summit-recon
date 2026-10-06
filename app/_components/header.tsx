@@ -31,7 +31,7 @@ export function Header() {
             href="/contact"
             className="group inline-flex items-center gap-1 rounded-md bg-brand-green px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-brand-green-hover"
           >
-            Free Inspection
+            Free Estimate
             <Arrow />
           </Link>
         </div>
@@ -80,7 +80,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="rounded-md bg-brand-green py-3 text-center font-semibold text-white"
             >
-              Book a Free Inspection
+              Get a Free Estimate
             </Link>
           </div>
         </nav>

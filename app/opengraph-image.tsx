@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { MOUNTAIN_VIEWBOX, PEAKS_PATH, SNOW_PATH } from "@/lib/mountain";
 import { site } from "@/lib/site";
 
-export const alt = `${site.name}: roof repair in ${site.region}`;
+export const alt = `${site.name}: interior reconstruction, restoration, and remodeling in ${site.region}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -57,10 +57,10 @@ export default async function OpengraphImage() {
 
           <div style={{ display: "flex", flexDirection: "column", marginTop: 52, fontSize: 76, fontWeight: 600, lineHeight: 1.05, letterSpacing: -2 }}>
             <span>Small crew.</span>
-            <span>Serious roof repair.</span>
+            <span>Serious rebuilds.</span>
           </div>
           <div style={{ marginTop: 24, fontSize: 30, fontWeight: 500, color: "rgba(255,255,255,0.8)" }}>
-            {`Roof repair · Storm damage · Free inspections · ${site.region.split(" & ")[0]}, TX`}
+            {`Reconstruction · Restoration · Remodeling · ${site.region.split(" & ")[0]}, TX`}
           </div>
         </div>
       </div>
