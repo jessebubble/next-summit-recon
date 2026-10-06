@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CtaBand, Check, Eyebrow, Ridge } from "./_components/ui";
+import { CtaBand, Check, Eyebrow, Mountain } from "./_components/ui";
 import { faqs, process, reasons, roofTypes, services, site } from "@/lib/site";
 
 export default function Home() {
@@ -21,7 +21,7 @@ export default function Home() {
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-white">
-      <Ridge className="absolute inset-x-0 bottom-0 h-40 w-full text-brand-grey-tint" />
+      <Mountain tone="silhouette" className="absolute bottom-0 right-0 h-28 w-auto max-w-none text-brand-grey-tint sm:h-44 lg:right-[8%]" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-24 pt-16 sm:px-6 md:grid-cols-[1.15fr_1fr] md:pb-32 md:pt-24">
         <div>
           <Eyebrow>Roof repair · {site.region}</Eyebrow>
