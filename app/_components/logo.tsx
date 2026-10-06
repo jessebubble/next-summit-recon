@@ -19,7 +19,7 @@ export function Logo({ preload = false }: { preload?: boolean }) {
         width={897}
         height={80}
         preload={preload}
-        className="h-4 w-auto sm:h-[18px]"
+        className="h-4 w-auto sm:h-4.5"
       />
     </Link>
   );

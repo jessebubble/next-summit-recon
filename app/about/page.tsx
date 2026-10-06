@@ -6,6 +6,7 @@ import { reasons, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About",
   description: `${site.name} is a small, owner-led roofing team serving ${site.region}.`,
+  alternates: { canonical: "/about" },
 };
 
 export default function AboutPage() {

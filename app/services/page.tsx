@@ -5,6 +5,7 @@ import { roofTypes, services, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Roofing Services",
   description: `Roof repair, storm and hail damage, emergency leak response, inspections, insurance claim help, and replacement across ${site.region}.`,
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

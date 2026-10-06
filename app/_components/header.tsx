@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Phone } from "lucide-react";
 import { Logo } from "./logo";
+import { Arrow } from "./ui";
 import { nav, site } from "@/lib/site";
 
 export function Header() {
@@ -27,24 +29,34 @@ export function Header() {
           </a>
           <Link
             href="/contact"
-            className="rounded-md bg-brand-green px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-brand-green-hover"
+            className="group inline-flex items-center gap-1 rounded-md bg-brand-green px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-brand-green-hover"
           >
             Free Inspection
+            <Arrow />
           </Link>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((o) => !o)}
-          className="-mr-2 p-2 text-foreground md:hidden"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          aria-label={open ? "Close menu" : "Open menu"}
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-            {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
-          </svg>
-        </button>
+        <div className="flex items-center gap-1 md:hidden">
+          <a
+            href={site.phoneHref}
+            className="flex size-11 items-center justify-center rounded-full bg-brand-green text-white"
+            aria-label={`Call ${site.name} at ${site.phone}`}
+          >
+            <Phone className="size-5" aria-hidden />
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen((o) => !o)}
+            className="-mr-2 flex size-11 items-center justify-center text-foreground"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {open && (

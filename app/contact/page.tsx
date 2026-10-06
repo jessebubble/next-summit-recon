@@ -6,6 +6,7 @@ import { contacts, site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Book a Free Roof Inspection",
   description: `Request a free roof inspection from ${site.name}. Serving ${site.region}.`,
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

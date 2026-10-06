@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CtaBand, Check, Eyebrow, Mountain } from "./_components/ui";
+import { Arrow, CtaBand, Check, Eyebrow } from "./_components/ui";
+import { JsonLd } from "./_components/json-ld";
 import { faqs, process, reasons, roofTypes, services, site } from "@/lib/site";
 
 export default function Home() {
@@ -14,6 +15,17 @@ export default function Home() {
       <RoofTypes />
       <Faq />
       <CtaBand />
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }}
+      />
     </>
   );
 }
@@ -21,10 +33,9 @@ export default function Home() {
 function Hero() {
   return (
     <section className="relative overflow-hidden bg-white">
-      <Mountain tone="silhouette" className="absolute bottom-0 right-0 h-28 w-auto max-w-none text-brand-grey-tint sm:h-44 lg:right-[8%]" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-24 pt-16 sm:px-6 md:grid-cols-[1.15fr_1fr] md:pb-32 md:pt-24">
+      <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-16 pt-12 sm:px-6 md:grid-cols-[1.15fr_1fr] md:pb-24 md:pt-24">
         <div>
-          <Eyebrow>Roof repair · {site.region}</Eyebrow>
+          <Eyebrow>Roof repair · {site.region.split(" & ")[0]}</Eyebrow>
           <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Small crew.
             <br />
@@ -37,15 +48,17 @@ function Hero() {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/contact"
-              className="rounded-md bg-brand-green px-6 py-3.5 text-center font-semibold text-white transition-colors hover:bg-brand-green-hover"
+              className="group inline-flex items-center justify-center gap-1.5 rounded-md bg-brand-green px-6 py-3.5 font-semibold text-white transition-colors duration-300 hover:bg-brand-green-hover"
             >
               Book My Free Roof Inspection
+              <Arrow />
             </Link>
             <Link
               href="/services"
-              className="rounded-md border border-brand-grey/30 px-6 py-3.5 text-center font-semibold text-foreground transition-colors hover:border-brand-green hover:text-brand-green"
+              className="group inline-flex items-center justify-center gap-1.5 rounded-md border border-brand-grey/30 px-6 py-3.5 font-semibold text-foreground transition-colors duration-300 hover:border-brand-green hover:text-brand-green"
             >
               Explore Our Services
+              <Arrow />
             </Link>
           </div>
           <ul className="mt-8 grid gap-2 text-sm text-brand-grey sm:grid-cols-2">
@@ -62,16 +75,16 @@ function Hero() {
 
         <div className="relative mx-auto w-full max-w-sm md:max-w-none">
           <div className="absolute -inset-4 rounded-3xl bg-brand-green-tint" aria-hidden />
-          <div className="relative rounded-2xl border border-black/5 bg-white p-8 shadow-xl shadow-black/5 sm:p-10">
+          <div className="relative rounded-2xl border border-black/5 bg-white p-6 shadow-xl shadow-black/5 sm:p-10">
             <Image
               src="/summit-recon-logo.png"
               alt={`${site.name} logo`}
               width={1046}
               height={642}
               preload
-              className="mx-auto h-auto w-full max-w-xs"
+              className="mx-auto h-auto w-full max-w-50 sm:max-w-xs"
             />
-            <div className="mt-8 rounded-lg bg-brand-grey-tint p-5">
+            <div className="mt-6 sm:mt-8 rounded-lg bg-brand-grey-tint p-5">
               <p className="text-xs font-semibold uppercase tracking-widest text-brand-grey-light">Emergency leak?</p>
               <p className="mt-1 text-sm text-brand-grey">
                 Call us directly — you&apos;ll reach the crew, not a call center.
@@ -122,8 +135,9 @@ function Services() {
               We focus on the work most roofs actually need — finding the problem and fixing it properly.
             </p>
           </div>
-          <Link href="/services" className="font-semibold text-brand-green hover:underline">
-            All services →
+          <Link href="/services" className="group inline-flex items-center gap-1 font-semibold text-brand-green">
+            All services
+            <Arrow />
           </Link>
         </div>
 
@@ -134,7 +148,10 @@ function Services() {
               href={`/services#${s.slug}`}
               className="group flex flex-col bg-white p-6 transition-colors hover:bg-brand-green-tint"
             >
-              <span className="h-1 w-8 bg-brand-green transition-all group-hover:w-12" />
+              <div className="flex items-center justify-between">
+                <span className="h-1 w-8 bg-brand-green transition-all group-hover:w-12" />
+                <Arrow className="size-5 text-brand-grey-light group-hover:text-brand-green" />
+              </div>
               <h3 className="mt-5 text-lg font-semibold">{s.title}</h3>
               <p className="mt-2 text-sm leading-6 text-brand-grey">{s.summary}</p>
             </Link>
