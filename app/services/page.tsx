@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { CtaBand, Check, Eyebrow } from "../_components/ui";
 import { serviceGroups, services, site, spaces } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "General Contracting, Reconstruction & Remodeling Services",
-  description: `General contracting, interior reconstruction, insurance claims, and kitchen, bathroom, tile, flooring, drywall, and painting work across ${site.region}.`,
-  alternates: { canonical: "/services" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "Contracting, Reconstruction & Remodeling Services",
+  description: `General contracting, interior reconstruction, insurance claims, and kitchen, bathroom, tile, flooring, drywall, and painting across ${site.cities}.`,
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

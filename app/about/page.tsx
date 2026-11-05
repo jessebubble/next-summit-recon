@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CtaBand, Eyebrow } from "../_components/ui";
 import { contacts, reasons, site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: "About",
-  description: `${site.name} is a small, owner-led team doing ${site.summary} across ${site.region}.`,
-  alternates: { canonical: "/about" },
-};
+export const metadata: Metadata = pageMetadata({
+  title: "About Our San Antonio Team",
+  description: `${site.name} is a small, owner-led team born and raised in San Antonio, doing ${site.summary} across ${site.cities}.`,
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

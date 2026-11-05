@@ -105,7 +105,7 @@ function TrustBar() {
     { k: "Owner-led", v: "On every job" },
     { k: "Free", v: "On-site estimates" },
     { k: "Insurance", v: "Claims coordinated" },
-    { k: "Local", v: site.region },
+    { k: "Local", v: "San Antonio to Austin" },
   ];
   return (
     <section className="bg-brand-grey text-white">

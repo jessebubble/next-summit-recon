@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { Check, Eyebrow } from "../_components/ui";
 import { contacts, site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Get a Free Estimate",
-  description: `Request a free on-site estimate for general contracting, reconstruction, or remodeling from ${site.name}. Serving ${site.region}.`,
-  alternates: { canonical: "/contact" },
-};
+  description: `Call or email ${site.name} for a free on-site estimate on contracting, reconstruction, or remodeling. Serving ${site.cities}.`,
+  path: "/contact",
+});
 
 // Primary contact (Matthew) first.
 const orderedContacts = [...contacts].sort((a, b) => Number(b.email === site.email) - Number(a.email === site.email));

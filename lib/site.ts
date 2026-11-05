@@ -31,12 +31,13 @@ export const site = {
 };
 
 // Absolute URL for metadata, OG images, sitemap, and llms.txt. On Vercel this
-// is the project's production domain — the .vercel.app alias today, and
-// summit-recon.com automatically once that domain is added to the project.
+// is the project's production domain — the .vercel.app alias until
+// summit-recon.com is added to the project, then summit-recon.com
+// automatically. Anywhere else, assume the real domain.
 function siteUrl() {
   if (process.env.NEXT_PUBLIC_SITE_URL) return process.env.NEXT_PUBLIC_SITE_URL;
   if (process.env.VERCEL_PROJECT_PRODUCTION_URL) return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
-  return "http://localhost:3000";
+  return "https://summit-recon.com";
 }
 
 export const nav = [

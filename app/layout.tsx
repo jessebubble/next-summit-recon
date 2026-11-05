@@ -5,6 +5,7 @@ import { Header } from "./_components/header";
 import { Footer } from "./_components/footer";
 import { JsonLd } from "./_components/json-ld";
 import { contacts, serviceGroups, services, site } from "@/lib/site";
+import { pageMetadata } from "@/lib/metadata";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,17 +18,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = `${site.name} | General Contracting, Reconstruction & Remodeling in San Antonio`;
-const description = `${site.name} is a small, owner-led San Antonio team for general contracting, interior reconstruction, insurance claims, and kitchen, bathroom, tile, flooring, drywall, and painting work across ${site.region}.`;
+// Kept under ~60/160 characters so Google shows them without truncation.
+const title = `${site.name} | General Contractor in San Antonio & Austin`;
+const description =
+  "Owner-led San Antonio contractor for reconstruction, insurance claims, and kitchen, bath, tile, flooring, drywall, and paint remodels. Free on-site estimates.";
+const longDescription = `${site.name} is a small, owner-led San Antonio team for general contracting, interior reconstruction, insurance claims, and kitchen, bathroom, tile, flooring, drywall, and painting work across ${site.region}.`;
 
 // opengraph-image.tsx is picked up automatically for openGraph/twitter images.
 export const metadata: Metadata = {
+  ...pageMetadata({ title, description, path: "/", absoluteTitle: true }),
   metadataBase: new URL(site.url),
   title: {
     default: title,
     template: `%s | ${site.name}`,
   },
-  description,
   applicationName: site.name,
   keywords: [
     "interior reconstruction San Antonio",
@@ -40,21 +44,18 @@ export const metadata: Metadata = {
     "bathroom remodeling San Antonio",
     "home remodeling contractor",
   ],
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "/",
-    siteName: site.name,
-    title,
-    description,
+  alternates: {
+    canonical: "/",
+    types: { "text/plain": "/llms.txt" },
   },
-  twitter: {
-    card: "summary_large_image",
-    title,
-    description,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
   },
-  robots: { index: true, follow: true },
+  ...(process.env.GOOGLE_SITE_VERIFICATION && {
+    verification: { google: process.env.GOOGLE_SITE_VERIFICATION },
+  }),
 };
 
 const businessJsonLd = {
@@ -65,11 +66,22 @@ const businessJsonLd = {
   url: site.url,
   logo: `${site.url}/summit-recon-logo.png`,
   image: `${site.url}/opengraph-image`,
-  description,
+  description: longDescription,
+  slogan: site.tagline,
   telephone: site.phone,
   email: site.email,
-  areaServed: ["San Antonio, TX", "Austin, TX"],
+  areaServed: [
+    { "@type": "City", name: "San Antonio", containedInPlace: { "@type": "State", name: "Texas" } },
+    { "@type": "City", name: "Austin", containedInPlace: { "@type": "State", name: "Texas" } },
+  ],
   address: { "@type": "PostalAddress", addressLocality: "San Antonio", addressRegion: "TX", addressCountry: "US" },
+  founder: contacts.map((c) => ({
+    "@type": "Person",
+    name: c.name,
+    telephone: c.phone,
+    email: c.email,
+    birthPlace: { "@type": "City", name: "San Antonio, Texas" },
+  })),
   contactPoint: contacts.map((c) => ({
     "@type": "ContactPoint",
     name: c.name,
@@ -95,6 +107,16 @@ const businessJsonLd = {
   },
 };
 
+// Helps Google show "Summit Recon" as the site name in results.
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${site.url}/#website`,
+  name: site.name,
+  url: site.url,
+  publisher: { "@id": `${site.url}/#business` },
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -103,6 +125,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col font-sans">
         <JsonLd data={businessJsonLd} />
+        <JsonLd data={websiteJsonLd} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
