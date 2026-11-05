@@ -13,15 +13,19 @@ export const contacts = [
   },
 ];
 
-// Service area and hours are placeholders — confirm before launch.
+// Matthew is the primary contact shown in the header, hero, and CTAs.
+const primary = contacts[1];
+
+// Hours are a placeholder — confirm before launch.
 export const site = {
   name: "Summit Recon",
-  tagline: "Interior reconstruction, restoration, and remodeling by a crew that answers its own phone.",
-  summary: "interior reconstruction, restoration, and remodeling",
-  phone: contacts[0].phone,
-  phoneHref: contacts[0].phoneHref,
-  email: contacts[0].email,
-  region: "San Antonio & the Texas Hill Country",
+  tagline: "General contracting, reconstruction, and remodeling by a San Antonio crew that answers its own phone.",
+  summary: "general contracting, interior reconstruction, and remodeling",
+  phone: primary.phone,
+  phoneHref: primary.phoneHref,
+  email: primary.email,
+  region: "San Antonio, Austin & surrounding areas",
+  cities: "San Antonio & Austin",
   hours: "Mon–Sat, 7am–6pm",
   url: siteUrl(),
 };
@@ -44,16 +48,16 @@ export const nav = [
 
 export const serviceGroups = [
   {
-    id: "restoration",
-    title: "Restoration & Reconstruction",
+    id: "reconstruction",
+    title: "General Contracting & Reconstruction",
     intro:
-      "When water or fire damages your home, insurance covers putting it back the way it was. We rebuild it, document every line item, and make sure the full scope gets covered.",
+      "One contractor for the whole job. We specialize in insurance claims: we rebuild what was damaged, document every line item, and make sure the full scope gets covered.",
   },
   {
     id: "remodeling",
     title: "Remodeling",
     intro:
-      "Kitchens, bathrooms, and living spaces planned and built by one small crew, with the same care we bring to every rebuild.",
+      "Kitchens, bathrooms, tile, flooring, drywall, and paint, planned and built by one small crew from demo to final walkthrough.",
   },
 ] as const;
 
@@ -67,37 +71,37 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "water-damage",
-    group: "restoration",
-    title: "Water & Flood Damage Reconstruction",
+    slug: "general-contracting",
+    group: "reconstruction",
+    title: "General Contracting",
     summary:
-      "Burst pipe, slab leak, appliance failure, or flooding. Once the space is dry, we rebuild walls, floors, cabinets, and finishes back to pre-loss condition.",
+      "One licensed contractor running your interior project, from scheduling and trades to permits and inspections, so you're never stuck juggling subs.",
     details: [
-      "Drywall and insulation replacement",
-      "Subfloor and flooring repair",
-      "Cabinet and vanity replacement",
-      "Baseboard, trim, and paint",
+      "Project scheduling and management",
+      "Framing and wall changes",
+      "Permits and inspections",
+      "Every trade coordinated",
     ],
   },
   {
-    slug: "fire-smoke",
-    group: "restoration",
-    title: "Fire & Smoke Damage Restoration",
+    slug: "interior-reconstruction",
+    group: "reconstruction",
+    title: "Interior Reconstruction",
     summary:
-      "From a kitchen fire to a whole-room loss, we rebuild damaged framing and finishes so your home looks and feels like home again.",
+      "When damage takes out part of your home, we rebuild the walls, floors, cabinets, and finishes so it looks and feels like home again.",
     details: [
       "Framing and structural repair",
       "Drywall, ceilings, and texture",
-      "Doors, trim, and millwork",
-      "Full interior refinishing",
+      "Subfloor and flooring",
+      "Cabinets, trim, and paint",
     ],
   },
   {
-    slug: "insurance-restoration",
-    group: "restoration",
-    title: "Insurance Restoration",
+    slug: "insurance-claims",
+    group: "reconstruction",
+    title: "Insurance Claims",
     summary:
-      "We document the damage, walk your adjuster through the scope, and keep the claim moving so every eligible item is covered.",
+      "Insurance work is our specialty. We document the damage, walk your adjuster through the scope, and keep the claim moving so every eligible item is covered.",
     details: [
       "Detailed written scope",
       "Photo documentation",
@@ -107,10 +111,10 @@ export const services: Service[] = [
   },
   {
     slug: "rebuild-and-upgrade",
-    group: "restoration",
+    group: "reconstruction",
     title: "Upgrade While You Rebuild",
     summary:
-      "Insurance pays to restore what you had. If you want better finishes or a new layout while the walls are open, you pay only the difference, with transparent pricing.",
+      "Insurance pays to rebuild what you had. If you want better finishes or a new layout while the walls are open, you pay only the difference, with transparent pricing.",
     details: [
       "Finish and fixture upgrades",
       "Layout changes during the rebuild",
@@ -145,29 +149,29 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: "interior-remodel",
+    slug: "tile-flooring",
     group: "remodeling",
-    title: "Interior & Whole-Home Remodeling",
+    title: "Tile & Flooring",
     summary:
-      "Open up a floor plan, refresh a living space, or update the whole house. The result feels intentional, not patched together.",
+      "Floors installed flat and level, and tile set straight with clean grout lines, from a single bathroom to the whole house.",
     details: [
-      "Wall removal and reframing",
-      "Living and bedroom updates",
-      "Laundry and utility rooms",
-      "Whole-home refreshes",
+      "Tile floors, showers, and backsplashes",
+      "LVP and laminate",
+      "Hardwood and engineered wood",
+      "Subfloor repair and leveling",
     ],
   },
   {
-    slug: "interior-finishes",
+    slug: "drywall-painting",
     group: "remodeling",
-    title: "Flooring, Cabinetry & Finishes",
+    title: "Drywall & Painting",
     summary:
-      "The finish work that makes a space feel new: floors installed level, cabinets set square, seamless drywall, and crisp paint and trim.",
+      "Seamless drywall, texture that matches, and crisp paint and trim, the finish work that makes a space feel new.",
     details: [
-      "LVP, tile, and hardwood flooring",
-      "Cabinet installation",
-      "Drywall and texture matching",
-      "Interior paint and trim carpentry",
+      "Drywall hang, tape, and finish",
+      "Texture matching",
+      "Interior paint",
+      "Trim and baseboards",
     ],
   },
 ];
@@ -187,7 +191,7 @@ export const processSteps = [
   },
   {
     step: "03",
-    title: "Rebuild",
+    title: "Build",
     body: "The same crew that scoped your project builds it, with protected floors, a clean site, and regular updates.",
   },
   {
@@ -211,35 +215,31 @@ export const reasons = [
     body: "We document everything and speak the adjuster's language, so your claim covers the full rebuild — not just part of it.",
   },
   {
-    title: "Licensed, insured, and local",
-    body: "We live and work here. Our reputation is built one home — and one neighbor — at a time.",
+    title: "Born and raised in San Antonio",
+    body: "Both owners grew up here. This is our hometown, and our reputation is built one home — and one neighbor — at a time.",
   },
 ];
 
 export const faqs = [
   {
-    q: "What's the difference between reconstruction, restoration, and remodeling?",
-    a: "Reconstruction and restoration bring a space back after damage — water, fire, or smoke — by rebuilding what was lost. Remodeling changes a space by choice, like a new kitchen layout or a bathroom upgrade. We do all three, and often combine them: if you're already rebuilding after damage, it's a good time to make upgrades.",
-  },
-  {
-    q: "Do you handle water extraction and drying?",
-    a: "We focus on the rebuild. If your home still needs water mitigation or drying, we'll coordinate with your mitigation company and start reconstruction as soon as the space is cleared.",
-  },
-  {
     q: "Do you work with insurance claims?",
-    a: "Yes. We document the damage, prepare a detailed scope, meet with your adjuster, and help with supplements if hidden damage turns up once walls are opened.",
+    a: "Yes, insurance claims are our specialty. We document the damage, prepare a detailed scope, meet with your adjuster, and help with supplements if hidden damage turns up once walls are opened.",
   },
   {
     q: "Can I upgrade finishes during an insurance rebuild?",
-    a: "Yes. Your policy covers restoring your home to its original condition. If you'd like better finishes, a different layout, or extra work while the walls are open, you pay only the difference, and we price every upgrade line by line before anything changes.",
+    a: "Yes. Your policy covers rebuilding your home to its original condition. If you'd like better finishes, a different layout, or extra work while the walls are open, you pay only the difference, and we price every upgrade line by line before anything changes.",
   },
   {
     q: "Is the estimate free?",
     a: "Yes. We'll walk the space, take measurements and photos, and give you a written estimate at no cost and with no obligation.",
   },
   {
+    q: "Do you require a deposit?",
+    a: "Yes. We require a 50% deposit upfront so we can purchase materials and get your project on the schedule. We'll go over the payment schedule for the remaining balance with your written estimate.",
+  },
+  {
     q: "How long will my project take?",
-    a: "It depends on the scope. A single-room rebuild can take a couple of weeks, while a full kitchen remodel or a multi-room loss takes longer. You'll get a realistic schedule with your estimate, and we'll keep you updated as the work moves along.",
+    a: "It depends on the scope. A single-room rebuild can take a couple of weeks, while a full kitchen remodel or a multi-room project takes longer. You'll get a realistic schedule with your estimate, and we'll keep you updated as the work moves along.",
   },
   {
     q: "Do you warranty your work?",

@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = `${site.name} | Reconstruction, Restoration & Remodeling in San Antonio`;
-const description = `${site.name} is a small, owner-led team for interior reconstruction after water and fire damage, insurance restoration, and kitchen, bathroom, and whole-home remodeling across ${site.region}.`;
+const title = `${site.name} | General Contracting, Reconstruction & Remodeling in San Antonio`;
+const description = `${site.name} is a small, owner-led San Antonio team for general contracting, interior reconstruction, insurance claims, and kitchen, bathroom, tile, flooring, drywall, and painting work across ${site.region}.`;
 
 // opengraph-image.tsx is picked up automatically for openGraph/twitter images.
 export const metadata: Metadata = {
@@ -31,13 +31,14 @@ export const metadata: Metadata = {
   applicationName: site.name,
   keywords: [
     "interior reconstruction San Antonio",
-    "water damage reconstruction",
-    "fire damage restoration",
-    "insurance restoration contractor",
+    "general contractor San Antonio",
+    "insurance claim contractor",
+    "remodeling contractor Austin",
+    "tile and flooring installation",
+    "drywall and painting",
     "kitchen remodeling San Antonio",
     "bathroom remodeling San Antonio",
     "home remodeling contractor",
-    "Texas Hill Country remodeling",
   ],
   alternates: { canonical: "/" },
   openGraph: {
@@ -67,7 +68,7 @@ const businessJsonLd = {
   description,
   telephone: site.phone,
   email: site.email,
-  areaServed: site.region,
+  areaServed: ["San Antonio, TX", "Austin, TX"],
   address: { "@type": "PostalAddress", addressLocality: "San Antonio", addressRegion: "TX", addressCountry: "US" },
   contactPoint: contacts.map((c) => ({
     "@type": "ContactPoint",
@@ -77,10 +78,10 @@ const businessJsonLd = {
     contactType: "customer service",
     areaServed: "US-TX",
   })),
-  knowsAbout: ["Interior reconstruction", "Water damage restoration", "Fire damage restoration", "Insurance restoration", "Kitchen remodeling", "Bathroom remodeling"],
+  knowsAbout: ["General contracting", "Interior reconstruction", "Insurance claims", "Kitchen remodeling", "Bathroom remodeling", "Tile", "Flooring", "Drywall", "Painting"],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Reconstruction, restoration & remodeling services",
+    name: "General contracting, reconstruction & remodeling services",
     itemListElement: serviceGroups.map((g) => ({
       "@type": "OfferCatalog",
       name: g.title,

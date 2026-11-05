@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { MOUNTAIN_VIEWBOX, PEAKS_PATH, SNOW_PATH } from "@/lib/mountain";
 import { site } from "@/lib/site";
 
-export const alt = `${site.name}: interior reconstruction, restoration, and remodeling in ${site.region}`;
+export const alt = `${site.name}: ${site.summary} in ${site.region}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -60,7 +60,7 @@ export default async function OpengraphImage() {
             <span>Serious rebuilds.</span>
           </div>
           <div style={{ marginTop: 24, fontSize: 30, fontWeight: 500, color: "rgba(255,255,255,0.8)" }}>
-            {`Reconstruction · Restoration · Remodeling · ${site.region.split(" & ")[0]}, TX`}
+            {`Contracting · Reconstruction · Remodeling · ${site.cities}, TX`}
           </div>
         </div>
       </div>

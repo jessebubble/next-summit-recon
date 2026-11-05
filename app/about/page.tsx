@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { CtaBand, Eyebrow } from "../_components/ui";
-import { reasons, site } from "@/lib/site";
+import { contacts, reasons, site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -21,16 +21,21 @@ export default function AboutPage() {
             </h1>
             <div className="mt-6 space-y-4 leading-7 text-brand-grey">
               <p>
-                {site.name} rebuilds homes. When water or fire damage turns your house upside down, we put it back
-                together: framing, drywall, floors, cabinets, and every finish in between. And when you&apos;re ready
-                for a new kitchen or bath, we bring that same rebuild experience to your remodel.
+                {site.name} builds and rebuilds homes. When damage turns your house upside down, we put it back
+                together: framing, drywall, tile, floors, cabinets, paint, and every finish in between. And when
+                you&apos;re ready for a new kitchen or bath, we bring that same experience to your remodel.
+              </p>
+              <p>
+                Our owners, {contacts.map((c) => c.name).join(" and ")}, were both born and raised in San Antonio.
+                This is our hometown — we grew up here, we live here, and we build here, and we treat every house like
+                it&apos;s on our own street.
               </p>
               <p>
                 We&apos;re intentionally small. That means fewer handoffs, faster answers, and a crew that takes
                 personal ownership of every project. When you call, you talk to the people doing the work.
               </p>
               <p>
-                We serve {site.region}, and most of our work comes from neighbors recommending us to neighbors.
+                Today we serve {site.region}, and most of our work comes from neighbors recommending us to neighbors.
                 We&apos;d like to keep it that way.
               </p>
             </div>

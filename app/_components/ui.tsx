@@ -43,7 +43,7 @@ export function CtaBand() {
       <Mountain className="absolute bottom-0 right-0 h-28 w-auto max-w-none sm:h-52 lg:right-[8%]" />
       <div className="relative mx-auto flex max-w-6xl flex-col items-start gap-8 px-4 pt-14 sm:px-6 sm:pt-16 md:flex-row md:items-center md:justify-between">
         <div className="max-w-xl">
-          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Ready to rebuild?</h2>
+          <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Ready to get started?</h2>
           <p className="mt-3 text-white/80">
             Start with a free on-site estimate. We&apos;ll walk the space with you, scope the work, and give you a straight answer on cost and timeline.
           </p>

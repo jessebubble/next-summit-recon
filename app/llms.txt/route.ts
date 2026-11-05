@@ -7,7 +7,7 @@ export const dynamic = "force-static";
 export function GET() {
   const body = `# ${site.name}
 
-> ${site.name} is a small, owner-led contractor in ${site.region} specializing in ${site.summary}. It rebuilds home interiors after water, flood, fire, and smoke damage, coordinates insurance restoration claims, and remodels kitchens, bathrooms, and whole homes. "Recon" is short for reconstruction.
+> ${site.name} is a small, owner-led contractor in ${site.region} specializing in ${site.summary}. Both owners were born and raised in San Antonio. It specializes in insurance claims, rebuilds damaged home interiors, and remodels kitchens and bathrooms, including tile, flooring, drywall, and painting. "Recon" is short for reconstruction.
 
 Every page is server-rendered. The site carries schema.org JSON-LD: a \`GeneralContractor\` node with the full service catalog on every page, and an \`FAQPage\` on the home page.
 

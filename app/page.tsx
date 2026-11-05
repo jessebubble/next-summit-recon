@@ -35,15 +35,15 @@ function Hero() {
     <section className="relative overflow-hidden bg-white">
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-4 pb-16 pt-12 sm:px-6 md:grid-cols-[1.15fr_1fr] md:pb-24 md:pt-24">
         <div>
-          <Eyebrow>Reconstruct · Restore · Remodel</Eyebrow>
+          <Eyebrow>Build · Reconstruct · Remodel</Eyebrow>
           <h1 className="mt-6 text-4xl font-semibold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Small crew.
             <br />
             <span className="text-brand-green">Serious rebuilds.</span>
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-8 text-brand-grey">
-            Interior reconstruction after water or fire damage, and remodels you&apos;ve been waiting on — by an
-            owner-led team in {site.region.split(" & ")[0]} that scopes, builds, and finishes the work itself.
+            Interior reconstruction when you need it the most, and remodels you&apos;ve been waiting on — by an
+            owner-led team born and raised in San Antonio that scopes, builds, and finishes the work itself.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
@@ -105,7 +105,7 @@ function TrustBar() {
     { k: "Owner-led", v: "On every job" },
     { k: "Free", v: "On-site estimates" },
     { k: "Insurance", v: "Claims coordinated" },
-    { k: "Local", v: site.region.split(" & ")[0] },
+    { k: "Local", v: site.region },
   ];
   return (
     <section className="bg-brand-grey text-white">
@@ -129,11 +129,11 @@ function Services() {
           <div className="max-w-2xl">
             <Eyebrow>What we do</Eyebrow>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Reconstruction, restoration &amp; remodeling
+              General contracting, reconstruction &amp; remodeling
             </h2>
             <p className="mt-4 text-brand-grey">
               Whether you&apos;re rebuilding after damage or finally upgrading a space you&apos;ve outgrown, we handle
-              the whole interior, from framing to final paint.
+              the whole interior, from framing to final paint, specializing in insurance claims.
             </p>
           </div>
           <Link href="/services" className="group inline-flex items-center gap-1 font-semibold text-brand-green">
@@ -176,8 +176,8 @@ function WhySmall() {
             The big-company standard, without the big-company runaround
           </h2>
           <p className="mt-4 text-brand-grey">
-            Large restoration outfits run on volume. We run on referrals. Keeping our team small means the people you
-            meet are the people working in your home — and they care how it turns out.
+            Big contractors run on volume. We run on referrals in the city we grew up in. Keeping our team small means
+            the people you meet are the people working in your home — and they care how it turns out.
           </p>
         </div>
         <div className="grid gap-6 sm:grid-cols-2">
@@ -244,8 +244,13 @@ function Faq() {
           <p className="mt-4 text-brand-grey">
             Don&apos;t see your question?{" "}
             <a href={site.phoneHref} className="font-semibold text-brand-green hover:underline">
-              Give us a call.
+              Give us a call
+            </a>{" "}
+            or{" "}
+            <a href={`mailto:${site.email}`} className="font-semibold text-brand-green hover:underline">
+              send an email
             </a>
+            .
           </p>
         </div>
         <div className="divide-y divide-black/10 border-y border-black/10">

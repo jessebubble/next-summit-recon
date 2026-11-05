@@ -3,8 +3,8 @@ import { CtaBand, Check, Eyebrow } from "../_components/ui";
 import { serviceGroups, services, site, spaces } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Reconstruction, Restoration & Remodeling Services",
-  description: `Water and fire damage reconstruction, insurance restoration, and kitchen, bathroom, and whole-home remodeling across ${site.region}.`,
+  title: "General Contracting, Reconstruction & Remodeling Services",
+  description: `General contracting, interior reconstruction, insurance claims, and kitchen, bathroom, tile, flooring, drywall, and painting work across ${site.region}.`,
   alternates: { canonical: "/services" },
 };
 
